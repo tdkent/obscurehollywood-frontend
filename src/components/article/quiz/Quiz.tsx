@@ -24,7 +24,7 @@ export default function Quiz() {
 
 	return (
 		<div className="flex flex-col my-4 sm:gap-12 lg:mt-0">
-			<ArticleHeader name={`Quiz: ${name}`} slug={quizSlug}>
+			<ArticleHeader name={`Quiz: ${name}`} route="quiz" slug={quizSlug}>
 				<div className="flex flex-col gap-2 border-y py-4 bg-content-alt px-6 font-light sm:px-12 lg:mt-4">
 					<ClientOnly>
 						<DisplayQuizResults />

@@ -36,9 +36,9 @@ export default function ArticleHeader({
 				{route && (
 					<div className="mt-8">
 						<Link to={backlink}>
-							<span className="flex items-center gap-2">
-								<MoveLeft />
-								All {route}
+							<span className="flex items-center gap-2 content-link hover:no-underline">
+								<MoveLeft size={18} />
+								All {route === "quiz" ? "quizzes" : route}
 							</span>
 						</Link>
 					</div>
