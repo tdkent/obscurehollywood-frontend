@@ -17,18 +17,22 @@ export default function ListPage({
 	route,
 	tags,
 }: Props) {
+	let headingText: string;
+
+	if (route === "quiz") headingText = "Quizzes";
+	else
+		headingText = `${route.slice(0, 1).toUpperCase()}${route.slice(1).toLowerCase()}`;
+
 	return (
 		<div className="page-margins bg-content">
-			<div className="my-4 px-6 sm:px-12">
+			<div className="my-8 px-6 sm:px-12">
 				{route === "search" ? (
 					<>
-						<h1 className="text-3xl md:text-4xl">Search Results</h1>
+						<h1 className="text-3xl md:text-4xl lg:text-5xl">Search Results</h1>
 						<p className="my-4 text-lg sm:text-xl">"{searchParam}"</p>
 					</>
 				) : (
-					<h1 className="text-3xl md:text-4xl">
-						{`${route.slice(0, 1).toUpperCase()}${route.slice(1).toLowerCase()}`}
-					</h1>
+					<h1 className="text-3xl md:text-4xl lg:text-5xl">{headingText}</h1>
 				)}
 			</div>
 			<Paginated

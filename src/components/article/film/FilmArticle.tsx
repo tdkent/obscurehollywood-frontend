@@ -100,6 +100,7 @@ export default function FilmArticle() {
 		<>
 			<ArticleHeader
 				name={name}
+				route="films"
 				showImage
 				slug={filmSlug}
 				subtitle={releaseYear}

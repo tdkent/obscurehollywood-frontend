@@ -1,9 +1,13 @@
+import { Link } from "@tanstack/react-router";
+import { MoveLeft } from "lucide-react";
 import Image from "@/components/image/Image";
+import type { Entity } from "@/types/ui.interface";
 
 interface Props {
 	children?: React.ReactNode;
 	name: string;
 	personGender?: string | null;
+	route?: Entity;
 	showImage?: boolean;
 	slug?: string;
 	subtitle?: number | string | null;
@@ -14,18 +18,30 @@ export default function ArticleHeader({
 	children,
 	name,
 	personGender,
+	route,
 	showImage,
 	slug,
 	subtitle,
 }: Props) {
+	const backlink = `/${route}`;
 	return (
 		<header className="flex flex-col gap-6">
-			<div className="my-4 px-6 sm:px-12 lg:mt-4">
-				<h1 className="text-3xl font-normal md:text-4xl">{name}</h1>
+			<div className="my-8 px-6 sm:px-12">
+				<h1 className="text-3xl font-normal md:text-4xl lg:text-5xl">{name}</h1>
 				{subtitle && (
-					<h2 className="text-xl text-secondary-text mt-2 md:text-2xl">
+					<h2 className="text-xl text-secondary-text mt-2 md:text-2xl lg:text-3xl lg:mt-3">
 						{subtitle}
 					</h2>
+				)}
+				{route && (
+					<div className="mt-8">
+						<Link to={backlink}>
+							<span className="flex items-center gap-2 content-link hover:no-underline">
+								<MoveLeft size={18} />
+								All {route === "quiz" ? "quizzes" : route}
+							</span>
+						</Link>
+					</div>
 				)}
 			</div>
 			{showImage && slug && (

@@ -27,6 +27,7 @@ export default function FeatureArticle() {
 		<>
 			<ArticleHeader
 				name={name}
+				route="features"
 				showImage
 				slug={featureSlug}
 				subtitle={subtitle}

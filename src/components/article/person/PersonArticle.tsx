@@ -124,6 +124,7 @@ export default function PersonArticle() {
 		<>
 			<ArticleHeader
 				name={name}
+				route="people"
 				personGender={gender}
 				showImage
 				slug={personSlug}

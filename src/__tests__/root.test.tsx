@@ -82,7 +82,7 @@ describe("App root layer", () => {
 		renderWithRouter("/quiz");
 
 		expect(
-			await screen.findByRole("heading", { name: "Quiz" }),
+			await screen.findByRole("heading", { name: "Quizzes" }),
 		).toBeInTheDocument();
 	});
 

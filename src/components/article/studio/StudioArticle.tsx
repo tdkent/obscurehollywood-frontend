@@ -102,7 +102,7 @@ export default function StudioArticle() {
 
 	return (
 		<>
-			<ArticleHeader name={name} slug={studioSlug}>
+			<ArticleHeader name={name} route="studios" slug={studioSlug}>
 				<DescriptionList metadata={filteredMetadata as FilteredDlMetadata[]} />
 			</ArticleHeader>
 			<Paginated
