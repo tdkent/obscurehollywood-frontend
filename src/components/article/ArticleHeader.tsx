@@ -26,10 +26,10 @@ export default function ArticleHeader({
 	const backlink = `/${route}`;
 	return (
 		<header className="flex flex-col gap-6">
-			<div className="my-4 px-6 sm:px-12 lg:mt-4">
-				<h1 className="text-3xl font-normal md:text-4xl">{name}</h1>
+			<div className="my-8 px-6 sm:px-12">
+				<h1 className="text-3xl font-normal md:text-4xl lg:text-5xl">{name}</h1>
 				{subtitle && (
-					<h2 className="text-xl text-secondary-text mt-2 md:text-2xl">
+					<h2 className="text-xl text-secondary-text mt-2 md:text-2xl lg:text-3xl lg:mt-3">
 						{subtitle}
 					</h2>
 				)}
