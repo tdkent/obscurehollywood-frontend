@@ -66,7 +66,7 @@ export default function ListItem({ entity, idx, item, useCardTheme }: Props) {
 					<Image
 						altText={item.name}
 						category={item?.category}
-						containerStyles={`flex shrink-0 items-center justify-center ${useCardTheme ? "rounded-lg" : "border size-18 sm:size-20 md:size-22 lg:size-36"}`}
+						containerStyles={`flex shrink-0 items-center justify-center ${useCardTheme ? "rounded-lg" : "border size-18 sm:size-20 md:size-28 lg:h-35 lg:w-49"}`}
 						fetchPriority={isLCP ? "high" : "low"}
 						lazyLoading={isLCP ? "eager" : "lazy"}
 						personGender={item?.gender}
