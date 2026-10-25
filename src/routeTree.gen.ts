@@ -14,6 +14,7 @@ import { Route as SplatRouteImport } from './routes/$'
 import { Route as DisclaimerRouteImport } from './routes/disclaimer'
 import { Route as MyQuizzesRouteImport } from './routes/my-quizzes'
 import { Route as SearchRouteImport } from './routes/search'
+import { Route as DedicationIndexRouteImport } from './routes/dedication.index'
 import { Route as FeaturesIndexRouteImport } from './routes/features.index'
 import { Route as FeaturesSlugRouteImport } from './routes/features/$slug'
 import { Route as FilmsIndexRouteImport } from './routes/films.index'
@@ -49,6 +50,11 @@ const MyQuizzesRoute = MyQuizzesRouteImport.update({
 const SearchRoute = SearchRouteImport.update({
   id: '/search',
   path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DedicationIndexRoute = DedicationIndexRouteImport.update({
+  id: '/dedication/',
+  path: '/dedication/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FeaturesIndexRoute = FeaturesIndexRouteImport.update({
@@ -119,6 +125,7 @@ export interface FileRoutesByFullPath {
   '/quiz/$slug': typeof QuizSlugRoute
   '/studios/$slug': typeof StudiosSlugRoute
   '/tags/$slug': typeof TagsSlugRoute
+  '/dedication/': typeof DedicationIndexRoute
   '/features/': typeof FeaturesIndexRoute
   '/films/': typeof FilmsIndexRoute
   '/people/': typeof PeopleIndexRoute
@@ -137,6 +144,7 @@ export interface FileRoutesByTo {
   '/quiz/$slug': typeof QuizSlugRoute
   '/studios/$slug': typeof StudiosSlugRoute
   '/tags/$slug': typeof TagsSlugRoute
+  '/dedication': typeof DedicationIndexRoute
   '/features': typeof FeaturesIndexRoute
   '/films': typeof FilmsIndexRoute
   '/people': typeof PeopleIndexRoute
@@ -156,6 +164,7 @@ export interface FileRoutesById {
   '/quiz/$slug': typeof QuizSlugRoute
   '/studios/$slug': typeof StudiosSlugRoute
   '/tags/$slug': typeof TagsSlugRoute
+  '/dedication/': typeof DedicationIndexRoute
   '/features/': typeof FeaturesIndexRoute
   '/films/': typeof FilmsIndexRoute
   '/people/': typeof PeopleIndexRoute
@@ -176,6 +185,7 @@ export interface FileRouteTypes {
     | '/quiz/$slug'
     | '/studios/$slug'
     | '/tags/$slug'
+    | '/dedication/'
     | '/features/'
     | '/films/'
     | '/people/'
@@ -194,6 +204,7 @@ export interface FileRouteTypes {
     | '/quiz/$slug'
     | '/studios/$slug'
     | '/tags/$slug'
+    | '/dedication'
     | '/features'
     | '/films'
     | '/people'
@@ -212,6 +223,7 @@ export interface FileRouteTypes {
     | '/quiz/$slug'
     | '/studios/$slug'
     | '/tags/$slug'
+    | '/dedication/'
     | '/features/'
     | '/films/'
     | '/people/'
@@ -231,6 +243,7 @@ export interface RootRouteChildren {
   QuizSlugRoute: typeof QuizSlugRoute
   StudiosSlugRoute: typeof StudiosSlugRoute
   TagsSlugRoute: typeof TagsSlugRoute
+  DedicationIndexRoute: typeof DedicationIndexRoute
   FeaturesIndexRoute: typeof FeaturesIndexRoute
   FilmsIndexRoute: typeof FilmsIndexRoute
   PeopleIndexRoute: typeof PeopleIndexRoute
@@ -273,6 +286,13 @@ declare module '@tanstack/react-router' {
       path: '/search'
       fullPath: '/search'
       preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dedication/': {
+      id: '/dedication/'
+      path: '/dedication'
+      fullPath: '/dedication/'
+      preLoaderRoute: typeof DedicationIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/features/': {
@@ -367,6 +387,7 @@ const rootRouteChildren: RootRouteChildren = {
   QuizSlugRoute: QuizSlugRoute,
   StudiosSlugRoute: StudiosSlugRoute,
   TagsSlugRoute: TagsSlugRoute,
+  DedicationIndexRoute: DedicationIndexRoute,
   FeaturesIndexRoute: FeaturesIndexRoute,
   FilmsIndexRoute: FilmsIndexRoute,
   PeopleIndexRoute: PeopleIndexRoute,

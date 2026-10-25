@@ -16,6 +16,8 @@ export default function Footer() {
 			<span className="text-sm">
 				© 2026. All rights reserved.{" "}
 				<Link to="/disclaimer">Privacy & Terms</Link>
+				{" | "}
+				<Link to="/dedication">Dedication</Link>
 			</span>
 		</footer>
 	);
