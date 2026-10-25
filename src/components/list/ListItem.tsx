@@ -79,12 +79,12 @@ export default function ListItem({ entity, idx, item, useCardTheme }: Props) {
 						`}
 					>
 						<h2
-							className={`text-lg text-pretty ${useCardTheme ? "" : "w-fit sm:text-xl xl:text-2xl"}`}
+							className={`text-lg text-pretty ${useCardTheme ? "" : "w-fit sm:text-xl lg:text-2xl"}`}
 						>
 							{item.name}
 						</h2>
 						<h3
-							className={`text-secondary-text font-normal text-base text-pretty ${useCardTheme ? "" : "sm:text-lg xl:text-xl"}`}
+							className={`text-secondary-text font-normal text-base text-pretty ${useCardTheme ? "" : "sm:text-lg lg:text-xl"}`}
 						>
 							{subtitle}
 						</h3>
