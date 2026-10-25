@@ -61,12 +61,12 @@ export default function ListItem({ entity, idx, item, useCardTheme }: Props) {
 		>
 			<Link to={link}>
 				<div
-					className={`flex justify-between ${useCardTheme ? "overflow-hidden flex-col mx-6 sm:mx-0" : "flex-row py-3 px-6 gap-4 sm:py-4 sm:gap-6 sm:px-12"}`}
+					className={`flex justify-between ${useCardTheme ? "overflow-hidden flex-col mx-6 sm:mx-0" : "flex-row py-3 px-6 gap-4 sm:py-4 sm:gap-6 sm:px-12 lg:gap-12 xl:gap-20"}`}
 				>
 					<Image
 						altText={item.name}
 						category={item?.category}
-						containerStyles={`flex shrink-0 items-center justify-center ${useCardTheme ? "rounded-lg" : "border size-18 sm:size-20 md:size-22 lg:size-36"}`}
+						containerStyles={`flex shrink-0 items-center justify-center ${useCardTheme ? "rounded-lg" : "border size-18 sm:size-20 md:size-28 lg:h-42 lg:w-56"}`}
 						fetchPriority={isLCP ? "high" : "low"}
 						lazyLoading={isLCP ? "eager" : "lazy"}
 						personGender={item?.gender}
@@ -79,12 +79,12 @@ export default function ListItem({ entity, idx, item, useCardTheme }: Props) {
 						`}
 					>
 						<h2
-							className={`text-lg text-pretty ${useCardTheme ? "" : "w-fit sm:text-xl xl:text-2xl"}`}
+							className={`text-lg text-pretty ${useCardTheme ? "" : "w-fit sm:text-xl lg:text-2xl"}`}
 						>
 							{item.name}
 						</h2>
 						<h3
-							className={`text-secondary-text font-normal text-base text-pretty ${useCardTheme ? "" : "sm:text-lg xl:text-xl"}`}
+							className={`text-secondary-text font-normal text-base text-pretty ${useCardTheme ? "" : "sm:text-lg lg:text-xl"}`}
 						>
 							{subtitle}
 						</h3>
