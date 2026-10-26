@@ -97,17 +97,17 @@ export default function Paginated({
 						/>
 					) : null}
 					{hasResults ? (
-						<div className="flex flex-col gap-6 text-sm sm:text-base lg:text-sm lg:flex-row lg:items-center lg:justify-end">
-							<SortItems
-								queryUrl={queryUrl}
-								route={route}
-								searchParam={searchParam}
-								sortParam={sortParam}
-								tagsParam={tagsParam}
-							/>
-
-							{route === "people" && <HasArticle />}
-
+						<div className="flex flex-col gap-6 text-sm sm:text-base lg:text-sm lg:flex-row lg:items-center lg:justify-between">
+							<div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-10">
+								<SortItems
+									queryUrl={queryUrl}
+									route={route}
+									searchParam={searchParam}
+									sortParam={sortParam}
+									tagsParam={tagsParam}
+								/>
+								{route === "people" && <HasArticle />}
+							</div>
 							{showFilterControls && (
 								<Filter
 									filmsPending={isPending}
