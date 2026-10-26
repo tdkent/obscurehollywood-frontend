@@ -1,17 +1,17 @@
-import { useSearch } from "@tanstack/react-router";
+import { useNavigate, useSearch } from "@tanstack/react-router";
 import type { UrlSearchParams } from "@/types/api.interface";
 
 export default function HasArticle() {
 	const { showAll }: UrlSearchParams = useSearch({
 		from: "/people/",
 	});
+	const navigate = useNavigate({ from: "/people/" });
 
 	const isChecked = showAll?.toString() !== "true";
 
-	function handleCheck(
-		e: React.ChangeEvent<HTMLInputElement, HTMLInputElement>,
-	) {
-		// const selected = e.currentTarget.checked;
+	function handleCheck() {
+		if (!isChecked) navigate({ to: "/people", search: {} });
+		else navigate({ to: "/people", search: { showAll: true } });
 	}
 
 	return (
