@@ -35,9 +35,11 @@ export const Route = createFileRoute("/people/")({
 });
 
 function RouteComponent() {
-	const { orderBy, page }: UrlSearchParams = useSearch({
+	const { orderBy, page, showAll }: UrlSearchParams = useSearch({
 		from: "/people/",
 	});
 
-	return <ListPage orderBy={orderBy} page={page} route="people" />;
+	return (
+		<ListPage orderBy={orderBy} page={page} route="people" showAll={showAll} />
+	);
 }

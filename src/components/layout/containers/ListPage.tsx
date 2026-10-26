@@ -6,6 +6,7 @@ interface Props {
 	page: string | undefined;
 	orderBy: string | undefined;
 	searchParam?: string;
+	showAll?: string;
 	route: Entity;
 	tags?: string[];
 }
@@ -14,6 +15,7 @@ export default function ListPage({
 	page,
 	orderBy,
 	searchParam,
+	showAll,
 	route,
 	tags,
 }: Props) {
@@ -39,6 +41,7 @@ export default function ListPage({
 				page={page}
 				orderBy={orderBy}
 				searchParam={searchParam}
+				showAll={showAll}
 				route={route}
 				showFilterControls={route === "films"}
 				tagsParam={tags}

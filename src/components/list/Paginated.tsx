@@ -25,6 +25,7 @@ interface Props {
 	queryUrl?: string;
 	route: Entity;
 	searchParam?: string;
+	showAll?: string;
 	showFilterControls?: boolean;
 	tagsParam?: string[];
 }
@@ -34,6 +35,7 @@ export default function Paginated({
 	orderBy,
 	queryUrl,
 	searchParam,
+	showAll,
 	route,
 	showFilterControls,
 	tagsParam,
@@ -57,6 +59,7 @@ export default function Paginated({
 		pageParam,
 		route: queryUrl ?? route,
 		searchParam,
+		showAll,
 		sortParam,
 		tagsParam,
 	});
@@ -65,6 +68,7 @@ export default function Paginated({
 		pageParam,
 		route: queryUrl ?? route,
 		searchParam,
+		showAll,
 		sortParam,
 		tagsParam,
 	});
