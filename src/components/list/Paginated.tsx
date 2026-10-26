@@ -146,6 +146,7 @@ export default function Paginated({
 									orderBy={sortParam}
 									page={pageParam}
 									searchParam={searchParam}
+									showAll={showAll}
 									tagsParam={tagsParam}
 									totalPages={paginatedData.meta.totalPages}
 								/>

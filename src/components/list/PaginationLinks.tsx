@@ -4,6 +4,7 @@ interface Props {
 	orderBy: string;
 	page: number;
 	searchParam?: string;
+	showAll?: string;
 	tagsParam?: string[];
 	totalPages: number;
 }
@@ -12,6 +13,7 @@ export default function PaginationLinks({
 	orderBy,
 	page,
 	searchParam,
+	showAll,
 	tagsParam,
 	totalPages,
 }: Props) {
@@ -37,6 +39,7 @@ export default function PaginationLinks({
 								page: page <= 1 ? 1 : page - 1,
 								orderBy,
 								search: searchParam,
+								showAll,
 								tag: tagsParam,
 							}}
 						>
@@ -58,6 +61,7 @@ export default function PaginationLinks({
 								page: 1,
 								orderBy,
 								search: searchParam,
+								showAll,
 								tag: tagsParam,
 							}}
 						>
@@ -82,6 +86,7 @@ export default function PaginationLinks({
 								page: isFirstPage ? 2 : page + 1,
 								orderBy,
 								search: searchParam,
+								showAll,
 								tag: tagsParam,
 							}}
 						>
@@ -103,6 +108,7 @@ export default function PaginationLinks({
 								page: totalPages,
 								orderBy,
 								search: searchParam,
+								showAll,
 								tag: tagsParam,
 							}}
 						>
