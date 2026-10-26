@@ -3,6 +3,7 @@ import { ClientOnly } from "@tanstack/react-router";
 import { useState } from "react";
 import DisplaySelectedFilters from "@/components/list/DisplaySelectedFilters";
 import Filter from "@/components/list/Filter";
+import HasArticle from "@/components/list/HasArticle";
 import ListItems from "@/components/list/ListItems";
 import PaginationLinks from "@/components/list/PaginationLinks";
 import PaginationMetadata from "@/components/list/PaginationMetadata";
@@ -104,6 +105,9 @@ export default function Paginated({
 								sortParam={sortParam}
 								tagsParam={tagsParam}
 							/>
+
+							{route === "people" && <HasArticle />}
+
 							{showFilterControls && (
 								<Filter
 									filmsPending={isPending}
