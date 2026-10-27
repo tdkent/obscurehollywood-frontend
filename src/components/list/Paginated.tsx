@@ -107,6 +107,7 @@ export default function Paginated({
 									queryUrl={queryUrl}
 									route={route}
 									searchParam={searchParam}
+									showAll={showAll}
 									sortParam={sortParam}
 									tagsParam={tagsParam}
 								/>
