@@ -33,8 +33,15 @@ export default function ListItem({ entity, idx, item, useCardTheme }: Props) {
 		}
 
 		case "people": {
-			const { birthDate, deathDate } = item as Person;
-			subtitle = getPersonLifespanString({ birthDate, deathDate });
+			const { birthDate, deathDate, partialBirthDate, partialDeathDate } =
+				item as Person;
+
+			subtitle = getPersonLifespanString({
+				birthDate,
+				deathDate,
+				partialBirthDate,
+				partialDeathDate,
+			});
 			break;
 		}
 

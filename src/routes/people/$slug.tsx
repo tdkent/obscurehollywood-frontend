@@ -21,6 +21,8 @@ export const Route = createFileRoute("/people/$slug")({
 		const lifespanStr = getPersonLifespanString({
 			birthDate: person.birthDate,
 			deathDate: person.deathDate,
+			partialBirthDate: person.partialBirthDate,
+			partialDeathDate: person.partialDeathDate,
 		});
 
 		const roles = person.personFilms
