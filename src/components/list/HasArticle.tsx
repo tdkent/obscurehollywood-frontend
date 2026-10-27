@@ -2,7 +2,7 @@ import { useNavigate, useSearch } from "@tanstack/react-router";
 import type { UrlSearchParams } from "@/types/api.interface";
 
 export default function HasArticle() {
-	const { showAll }: UrlSearchParams = useSearch({
+	const { orderBy, showAll }: UrlSearchParams = useSearch({
 		from: "/people/",
 	});
 	const navigate = useNavigate({ from: "/people/" });
@@ -10,8 +10,8 @@ export default function HasArticle() {
 	const isChecked = showAll?.toString() !== "true";
 
 	function handleCheck() {
-		if (!isChecked) navigate({ to: "/people", search: {} });
-		else navigate({ to: "/people", search: { showAll: true } });
+		if (!isChecked) navigate({ to: "/people", search: { orderBy } });
+		else navigate({ to: "/people", search: { orderBy, showAll: true } });
 	}
 
 	return (
