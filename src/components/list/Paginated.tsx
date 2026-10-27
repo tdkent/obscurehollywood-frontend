@@ -3,6 +3,7 @@ import { ClientOnly } from "@tanstack/react-router";
 import { useState } from "react";
 import DisplaySelectedFilters from "@/components/list/DisplaySelectedFilters";
 import Filter from "@/components/list/Filter";
+import HasArticle from "@/components/list/HasArticle";
 import ListItems from "@/components/list/ListItems";
 import PaginationLinks from "@/components/list/PaginationLinks";
 import PaginationMetadata from "@/components/list/PaginationMetadata";
@@ -24,6 +25,7 @@ interface Props {
 	queryUrl?: string;
 	route: Entity;
 	searchParam?: string;
+	showAll?: string;
 	showFilterControls?: boolean;
 	tagsParam?: string[];
 }
@@ -33,6 +35,7 @@ export default function Paginated({
 	orderBy,
 	queryUrl,
 	searchParam,
+	showAll,
 	route,
 	showFilterControls,
 	tagsParam,
@@ -56,6 +59,7 @@ export default function Paginated({
 		pageParam,
 		route: queryUrl ?? route,
 		searchParam,
+		showAll,
 		sortParam,
 		tagsParam,
 	});
@@ -64,6 +68,7 @@ export default function Paginated({
 		pageParam,
 		route: queryUrl ?? route,
 		searchParam,
+		showAll,
 		sortParam,
 		tagsParam,
 	});
@@ -96,14 +101,18 @@ export default function Paginated({
 						/>
 					) : null}
 					{hasResults ? (
-						<div className="flex flex-col gap-6 text-sm sm:text-base lg:text-sm lg:flex-row lg:items-center lg:justify-end">
-							<SortItems
-								queryUrl={queryUrl}
-								route={route}
-								searchParam={searchParam}
-								sortParam={sortParam}
-								tagsParam={tagsParam}
-							/>
+						<div className="flex flex-col gap-6 text-sm sm:text-base lg:text-sm lg:flex-row lg:items-center lg:justify-between">
+							<div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-10">
+								<SortItems
+									queryUrl={queryUrl}
+									route={route}
+									searchParam={searchParam}
+									showAll={showAll}
+									sortParam={sortParam}
+									tagsParam={tagsParam}
+								/>
+								{route === "people" && <HasArticle />}
+							</div>
 							{showFilterControls && (
 								<Filter
 									filmsPending={isPending}
@@ -138,6 +147,7 @@ export default function Paginated({
 									orderBy={sortParam}
 									page={pageParam}
 									searchParam={searchParam}
+									showAll={showAll}
 									tagsParam={tagsParam}
 									totalPages={paginatedData.meta.totalPages}
 								/>

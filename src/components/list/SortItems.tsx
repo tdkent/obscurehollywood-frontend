@@ -6,6 +6,7 @@ interface Props {
 	queryUrl?: string;
 	route: Entity;
 	searchParam: string | undefined;
+	showAll: string | undefined;
 	sortParam: string;
 	tagsParam: string[] | undefined;
 }
@@ -13,6 +14,7 @@ interface Props {
 export default function SortItems({
 	route,
 	searchParam,
+	showAll,
 	sortParam,
 	tagsParam,
 }: Props) {
@@ -34,7 +36,7 @@ export default function SortItems({
 			</label>
 			<select
 				className="select w-3/5 sm:w-2/5 md:w-50 lg:w-40"
-				defaultValue={defaultValue}
+				value={defaultValue}
 				id="sort-items"
 				onChange={(e) => {
 					navigate({
@@ -43,6 +45,7 @@ export default function SortItems({
 							page: 1,
 							orderBy: e.currentTarget.value,
 							q: searchParam,
+							showAll,
 							tag: tagsParam,
 						},
 					});

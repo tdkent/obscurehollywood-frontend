@@ -2,6 +2,7 @@ interface Inputs {
 	pageParam: number;
 	route: string;
 	searchParam?: string;
+	showAll?: string;
 	sortParam: string;
 	tagsParam?: string[];
 }
@@ -14,6 +15,7 @@ export function createQueryKey({
 	pageParam,
 	route,
 	searchParam,
+	showAll,
 	sortParam,
 	tagsParam,
 }: Inputs) {
@@ -23,6 +25,8 @@ export function createQueryKey({
 	};
 
 	if (searchParam) paramsObj.search = searchParam;
+
+	if (showAll) paramsObj.showAll = showAll;
 
 	if (tagsParam?.length) paramsObj.tagsParam = tagsParam;
 
