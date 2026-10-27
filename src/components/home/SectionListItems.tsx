@@ -37,8 +37,14 @@ export default function SectionListItems({ route }: Props) {
 				} else if (route === "films") {
 					subtitle = (ra as Film).releaseYear;
 				} else if (route === "people") {
-					const { birthDate, deathDate } = ra as Person;
-					subtitle = getPersonLifespanString({ birthDate, deathDate });
+					const { birthDate, deathDate, partialBirthDate, partialDeathDate } =
+						ra as Person;
+					subtitle = getPersonLifespanString({
+						birthDate,
+						deathDate,
+						partialBirthDate,
+						partialDeathDate,
+					});
 				} else {
 					subtitle = "";
 				}

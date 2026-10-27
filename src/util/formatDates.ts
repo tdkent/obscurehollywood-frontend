@@ -66,9 +66,13 @@ function getFormattedDateString(date: string): string {
 export function getPersonLifespanString({
 	birthDate,
 	deathDate,
+	partialBirthDate,
+	partialDeathDate,
 }: {
 	birthDate: string | null;
 	deathDate: string | null;
+	partialBirthDate: string | null;
+	partialDeathDate: string | null;
 }): string {
 	if (!birthDate) return "";
 
