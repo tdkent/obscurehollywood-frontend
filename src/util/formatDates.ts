@@ -74,13 +74,15 @@ export function getPersonLifespanString({
 	partialBirthDate: string | null;
 	partialDeathDate: string | null;
 }): string {
-	if (!birthDate) return "";
+	let birthYear: string | number, deathYear: string | number;
 
-	const birthYear = DateTime.fromISO(birthDate).year;
+	if (partialBirthDate) birthYear = partialBirthDate.slice(-4);
+	else if (birthDate) birthYear = DateTime.fromISO(birthDate).year;
+	else birthYear = "?";
 
-	if (!deathDate) return `Born ${birthYear}`;
-
-	const deathYear = DateTime.fromISO(deathDate).year;
+	if (partialDeathDate) deathYear = partialDeathDate.slice(-4);
+	else if (deathDate) deathYear = DateTime.fromISO(deathDate).year;
+	else deathYear = "?";
 
 	return `${birthYear} - ${deathYear}`;
 }
