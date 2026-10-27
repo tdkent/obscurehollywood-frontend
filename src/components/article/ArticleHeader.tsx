@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { MoveLeft } from "lucide-react";
 import Image from "@/components/image/Image";
 import type { Entity } from "@/types/ui.interface";
 
@@ -23,7 +22,6 @@ export default function ArticleHeader({
 	slug,
 	subtitle,
 }: Props) {
-	const backlink = `/${route}`;
 	return (
 		<header className="flex flex-col gap-6">
 			<div className="my-8 px-6 sm:px-12">
@@ -33,12 +31,11 @@ export default function ArticleHeader({
 						{subtitle}
 					</h2>
 				)}
-				{route && (
+				{route === "studios" && (
 					<div className="mt-8">
-						<Link to={backlink}>
-							<span className="flex items-center gap-2 content-link hover:no-underline">
-								<MoveLeft size={18} />
-								All {route === "quiz" ? "quizzes" : route}
+						<Link to={"/studios"}>
+							<span className="flex items-center gap-2 content-link">
+								All Studios
 							</span>
 						</Link>
 					</div>

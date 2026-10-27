@@ -15,7 +15,7 @@ export default function HasArticle() {
 	}
 
 	return (
-		<label className="flex items-center gap-2">
+		<label className="flex items-center gap-2 hover:cursor-pointer">
 			<input
 				type="checkbox"
 				className="checkbox"
