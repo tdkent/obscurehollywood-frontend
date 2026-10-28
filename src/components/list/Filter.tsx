@@ -3,6 +3,7 @@ import { Plus, X } from "lucide-react";
 import { type Dispatch, type SetStateAction, useState } from "react";
 import FilterForm from "@/components/list/FilterForm";
 import Loading from "@/components/shared/Loading";
+import type { PaginatedResponse } from "@/types/paginated-response.interface";
 import type { Tag } from "@/types/tag.interface";
 import httpRequest from "@/util/httpRequest";
 
@@ -30,7 +31,7 @@ export default function Filter({
 	if (error)
 		return <span className="text-error text-sm">Error loading filters</span>;
 
-	const tags = data as Tag[];
+	const { data: tags } = data as PaginatedResponse;
 
 	return (
 		<div className="drawer">
@@ -90,7 +91,7 @@ export default function Filter({
 						setFilters={setFilters}
 						setIsOpen={setIsOpen}
 						sortParam={sortParam}
-						tags={tags}
+						tags={tags as Tag[]}
 					/>
 				</div>
 			</div>

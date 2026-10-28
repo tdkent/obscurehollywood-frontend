@@ -22,6 +22,8 @@ export default function ArticleHeader({
 	slug,
 	subtitle,
 }: Props) {
+	const displayBacklink = route === "studios" || route === "tags";
+
 	return (
 		<header className="flex flex-col gap-6">
 			<div className="my-8 px-6 sm:px-12">
@@ -31,11 +33,11 @@ export default function ArticleHeader({
 						{subtitle}
 					</h2>
 				)}
-				{route === "studios" && (
+				{displayBacklink && (
 					<div className="mt-8">
-						<Link to={"/studios"}>
+						<Link to={`/${route}`}>
 							<span className="flex items-center gap-2 content-link">
-								All Studios
+								All {`${route.slice(0, 1).toUpperCase()}${route.slice(1)}`}
 							</span>
 						</Link>
 					</div>
