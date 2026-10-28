@@ -2,7 +2,7 @@ import { useLocation } from "@tanstack/react-router";
 import { CircleAlert, ImageOff } from "lucide-react";
 
 interface ImageFallback {
-	category?: "feature" | "film" | "person" | "studio";
+	category?: "feature" | "film" | "person" | "studio" | "tag";
 	isHeader?: boolean;
 	personGender?: string | null;
 }
@@ -22,6 +22,17 @@ export default function ImageFallback({
 			<img
 				src={`/img/fallback-studio.jpg`}
 				alt={`Silhouette of a movie studio`}
+				className="object-cover w-full h-full"
+			/>
+		);
+	}
+
+	// Tags fallback image
+	if (pathname === "/tags" || (category && category === "tag")) {
+		return (
+			<img
+				src={`/img/fallback-tag.jpg`}
+				alt={`Silhouette of a 35mm film reel`}
 				className="object-cover w-full h-full"
 			/>
 		);
