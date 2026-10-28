@@ -34,6 +34,7 @@ export default function TagArticle() {
 		<>
 			<ArticleHeader
 				name={`${tagType}: ${name}`}
+				route="tags"
 				slug={tagSlug}
 				subtitle={subtitle}
 			>
