@@ -25,6 +25,7 @@ import { Route as QuizIndexRouteImport } from './routes/quiz.index'
 import { Route as QuizSlugRouteImport } from './routes/quiz/$slug'
 import { Route as StudiosIndexRouteImport } from './routes/studios.index'
 import { Route as StudiosSlugRouteImport } from './routes/studios/$slug'
+import { Route as TagsIndexRouteImport } from './routes/tags.index'
 import { Route as TagsSlugRouteImport } from './routes/tags/$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -107,6 +108,11 @@ const StudiosSlugRoute = StudiosSlugRouteImport.update({
   path: '/studios/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TagsIndexRoute = TagsIndexRouteImport.update({
+  id: '/tags/',
+  path: '/tags/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TagsSlugRoute = TagsSlugRouteImport.update({
   id: '/tags/$slug',
   path: '/tags/$slug',
@@ -131,6 +137,7 @@ export interface FileRoutesByFullPath {
   '/people/': typeof PeopleIndexRoute
   '/quiz/': typeof QuizIndexRoute
   '/studios/': typeof StudiosIndexRoute
+  '/tags/': typeof TagsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -150,6 +157,7 @@ export interface FileRoutesByTo {
   '/people': typeof PeopleIndexRoute
   '/quiz': typeof QuizIndexRoute
   '/studios': typeof StudiosIndexRoute
+  '/tags': typeof TagsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -170,6 +178,7 @@ export interface FileRoutesById {
   '/people/': typeof PeopleIndexRoute
   '/quiz/': typeof QuizIndexRoute
   '/studios/': typeof StudiosIndexRoute
+  '/tags/': typeof TagsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -191,6 +200,7 @@ export interface FileRouteTypes {
     | '/people/'
     | '/quiz/'
     | '/studios/'
+    | '/tags/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -210,6 +220,7 @@ export interface FileRouteTypes {
     | '/people'
     | '/quiz'
     | '/studios'
+    | '/tags'
   id:
     | '__root__'
     | '/'
@@ -229,6 +240,7 @@ export interface FileRouteTypes {
     | '/people/'
     | '/quiz/'
     | '/studios/'
+    | '/tags/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -249,6 +261,7 @@ export interface RootRouteChildren {
   PeopleIndexRoute: typeof PeopleIndexRoute
   QuizIndexRoute: typeof QuizIndexRoute
   StudiosIndexRoute: typeof StudiosIndexRoute
+  TagsIndexRoute: typeof TagsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -365,6 +378,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StudiosSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tags/': {
+      id: '/tags/'
+      path: '/tags'
+      fullPath: '/tags/'
+      preLoaderRoute: typeof TagsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tags/$slug': {
       id: '/tags/$slug'
       path: '/tags/$slug'
@@ -393,6 +413,7 @@ const rootRouteChildren: RootRouteChildren = {
   PeopleIndexRoute: PeopleIndexRoute,
   QuizIndexRoute: QuizIndexRoute,
   StudiosIndexRoute: StudiosIndexRoute,
+  TagsIndexRoute: TagsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
